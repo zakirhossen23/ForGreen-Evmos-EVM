@@ -83,7 +83,7 @@ export default function AuctionNFT(user) {
                 const arr = [];
                 for (let i = 0; i < AllProjects.length; i++) {
                     let porjectID = Number(AllProjects[i])
-                    let value2 =   value2=  await contract.eventURI(porjectID).call();
+                    let value2 =    await contract.eventURI(porjectID).call();
                  
                     let totalEarned = await contract.getEventRaised(porjectID).call();
                     const votes = await contract.getSearchedGrantVoteProject(Number(id),porjectID).call();
@@ -98,7 +98,7 @@ export default function AuctionNFT(user) {
                             }                            
                         }
                         if (value2[0].toLowerCase() === window.ethereum.selectedAddress.toLowerCase()){
-                            isvoted= false;
+                            isvoted= true;
                         }
                         arr.push({
                             eventId: porjectID,
@@ -280,7 +280,7 @@ export default function AuctionNFT(user) {
                                 <div className="Grant-DetialsContainer" style={{ rowGap: "5px" }} >
                                     <h6 className='Auction NFT-title'>{listItem.Title}</h6>
                                     <div className="TextContainer">
-                                        <h6 className="Grant NFT-Description" style={{ color: "#8B8B8B" }}>{listItem.Description}</h6>
+                                        <h6 className="Grant NFT-Description" style={{ color: "#dee2e6" }}>{listItem.Description}</h6>
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '11px' }}>
