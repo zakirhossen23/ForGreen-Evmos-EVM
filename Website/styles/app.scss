@@ -511,9 +511,13 @@ a:hover {
 }
   .card-body:hover {    
     background-color: rgba(237, 78, 51, 0.8) !important;
-    border: 1px solid white;
+   
     color: white;
+} 
+.card-body:not(.donation):hover {    
+    border: 1px solid white;
 }
+
 h1 {
     font-size: 38px;
 }
