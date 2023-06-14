@@ -55,7 +55,8 @@ export default function BidNFTModal({
 			alertELM.style.display = 'none';
 		}
 		try {
-			activateWorkingModal("Bidding....")
+			activateWorkingModal("Please Approve Fund Transfering...")
+			await sendTransaction(contract._approveRequiredMsgs());
 
 			activateWorkingModal("Please confirm transaction")
 			let new_amount  = `${(Number(Amount) * 1e18)}`;
