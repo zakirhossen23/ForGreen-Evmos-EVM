@@ -57,11 +57,15 @@ export default function BidNFTModal({
 		try {
 			activateWorkingModal("Bidding....")
 
-			activateWorkingModal("A moment please")
-			var tronweb = window.tronWeb
-			var tx = await tronweb.transactionBuilder.sendTrx(toAddress, (Number(Amount) * 1e6).toFixed(5), window?.tronWeb?.defaultAddress?.base58.toString())
-			var signedTx = await tronweb.trx.sign(tx)
-			var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
+			activateWorkingModal("Please confirm transaction")
+			let new_amount  = `${(Number(Amount) * 1e18)}`;
+
+			await contract.donate(Number(eventId),new_amount).send({
+				from:window.ethereum.selectedAddress,
+				value: new_amount,
+				gasPrice: 100_000_000,
+				gas: 6_000_000,
+			  });
 
 			activateWorkingModal("Done! Adding into tEVMOS Network...")
 
