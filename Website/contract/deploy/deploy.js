@@ -6,7 +6,7 @@ const func = async (hre) => {
 	const { deployer } = await getNamedAccounts();
 
 
-	await deploy('ForGreen', {
+	await deploy('DemeterGift', {
 		from: deployer,
 		log: true,
 	});

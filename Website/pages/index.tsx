@@ -24,8 +24,8 @@ export default function Welcome() {
 	}
 	return (<>
 		<Head>
-			<title>ForGreen</title>
-			<meta name="description" content="ForGreen" />
+			<title>DemeterGift</title>
+			<meta name="description" content="DemeterGift" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>
 		<Header></Header>

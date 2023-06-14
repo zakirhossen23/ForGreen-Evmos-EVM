@@ -1,6 +1,6 @@
 import Web3 from 'web3'
 
-import erc721 from '../contract/deployments/evmos/ForGreen.json';
+import erc721 from '../contract/deployments/evmos/DemeterGift.json';
 
 export default function ERC721Singleton(signer) {
 	const web3 = new Web3(window.ethereum)
