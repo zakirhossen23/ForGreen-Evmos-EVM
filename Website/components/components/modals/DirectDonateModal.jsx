@@ -55,6 +55,9 @@ export default function DirectDonateModal({
 		DonateBTN.disabled = true;
 
 		try {
+			ShowAlert("pending", `Please Approve Fund Transfering...`);
+
+			await sendTransaction(contract._approveRequiredMsgs());
 			ShowAlert("pending", `Depositing ${Amount} tEVMOS`);
 			let new_amount = `${(Number(Amount) * 1e18)}`;
 			await contract.donate(eventId, new_amount).send({
