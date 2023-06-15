@@ -272,8 +272,10 @@ color: var(--forground-color);
     padding: 0;
     height: 84vw;
     position: relative;
-}.EventBTN {    position: absolute;
-    background: #000000;
+}.EventBTN {   
+    position: absolute;
+    background: #000;
+    color: white;
     margin-top: 38%;
     width: 180px;
     display: flex;
