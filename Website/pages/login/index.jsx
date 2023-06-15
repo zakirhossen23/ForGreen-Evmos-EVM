@@ -87,13 +87,13 @@ export default function Login() {
         if (window.localStorage.getItem("Type") == "manager") {
             return (<>
                 <div type="manager" onClick={TypeSet} className='Login eventManagerButton active'>
-                    <span type="manager" style={{ color: "yellow" }}>Event Manager</span>
+                    <span type="manager" >Event Manager</span>
                 </div>
             </>)
         }
         return (<>
             <div type="manager" onClick={TypeSet} className='Login eventManagerButton'>
-                <span type="manager" style={{ color: "yellow" }}>Event Manager</span>
+                <span type="manager" >Event Manager</span>
             </div>
         </>)
     }
@@ -101,13 +101,13 @@ export default function Login() {
         if (window.localStorage.getItem("Type") == "Donator") {
             return (<>
                 <div type="Donator" onClick={TypeSet} className='Login userButton active'>
-                    <span type="Donator" style={{ color: "black" }}>Donator</span>
+                    <span type="Donator" >Donator</span>
                 </div>
             </>)
         }
         return (<>
             <div type="Donator" onClick={TypeSet} className='Login userButton'>
-                <span type="Donator" style={{ color: "black" }}>Donator</span>
+                <span type="Donator" >Donator</span>
             </div>
         </>)
 
@@ -123,7 +123,7 @@ export default function Login() {
             <div className="Login row">
                 <div className="Login col">
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <div className='Login container' style={{ background: "transparent", padding: "19px", borderRadius: "4px", height: "100%", border: "white solid" }}>
+                        <div className='Login container' style={{ background: "transparent", padding: "19px", borderRadius: "4px", height: "100%", border: "var(--btn-top-primary-bg) solid" }}>
                             <div style={{ margin: "0px 0px 30px 0px" }}>
                                 <h1 style={{ marginBottom: "10px" }}>Login</h1>
                             </div>

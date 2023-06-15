@@ -55,7 +55,8 @@
     background: #0e6616;
 }
 .userButton{
-    background: #59e964;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
     height: 150px;
     cursor: pointer;
     display: flex;

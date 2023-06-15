@@ -167,13 +167,13 @@ export function Nav(): JSX.Element {
                                     <div className="wallet__address" style={{ fontSize: 14, letterSpacing: "0.5px" }}>
                                         {acc}
                                     </div>
-                                    <div className="wallet__balance" style={{ color: "rgb(236 190 33 / 50%)", fontSize: 12, letterSpacing: "0.6px" }}>
+                                    <div className="wallet__balance" style={{  fontSize: 12, letterSpacing: "0.6px" }}>
                                         {Balance}
                                     </div>
                                 </div>
                                 <button type="button" onClick={onClickDisConnect} className="btn btn-logout" style={{ padding: 0 }}>
                                     <span className="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height={32} width={32} style={{ fill: "rgb(197, 228, 243)" }}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" height={32} width={32} style={{ fill: "red" }}>
                                             <path
                                                 fillRule="evenodd"
                                                 clipRule="evenodd"

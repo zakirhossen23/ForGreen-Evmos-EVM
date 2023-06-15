@@ -190,7 +190,7 @@
         color: #293166;
 
         &:hover {
-            background-color: darken(#c5e4f3, 10%);
+            filter: brightness(0.85);
             color: #293166;
         }
     }

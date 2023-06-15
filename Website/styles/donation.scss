@@ -50,7 +50,7 @@
     }
     .donation.event-BTN{
         color: white;
-        background: #ED4E33;
+        background: var(--btn-bg);
         text-align: center;
         cursor: pointer;
         height: 100%;
@@ -125,7 +125,7 @@
     }
     .donation.event-BTN{
         color: white;
-        background: #ED4E33;
+        background: var(--btn-bg);
         text-align: center;
         cursor: pointer;
         height: 100%;

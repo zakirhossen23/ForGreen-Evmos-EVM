@@ -302,7 +302,7 @@ progress.a-progress-bar.a-progress-bar--green {
     background: -webkit-gradient(linear,left top,left bottom,color-stop(35.42%,#fdb933),color-stop(139.58%,#f58131));
     background: -webkit-linear-gradient(top,#fdb933 35.42%,#f58131 139.58%);
     background: -moz-linear-gradient(top,#fdb933 35.42%,#f58131 139.58%);
-    background: linear-gradient(180deg, #ed4e33 35.42%, #4f0c0c 112.58%);
+    background: linear-gradient(180deg, var(--btn-bg) 35.42%, #4f0c0c 112.58%);
 }
 
 .hrt-gradient-button--full {

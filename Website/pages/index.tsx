@@ -37,14 +37,12 @@ export default function Welcome() {
 				</div>
 				<div className="text-center">
 					<h4 className='welcome description' >
-					Donation events as a service, to create the most easy, transparent and fun NFT charity auction, to help organizations raise additional support for a green world! 
-
-
+					Donation events as a service, to create the most easy, transparent and fun NFT charity auction, to help organizations raise additional support!
 					</h4>
 				</div>
 				<div className="Welcome DonateBTN col">
 					<div onClick={donateCLICK} style={{
-						background: '#ED4E33',
+						background: 'var(--btn-bg)',
 						textAlign: 'center',
 						cursor: 'pointer',
 						height: '58px',
