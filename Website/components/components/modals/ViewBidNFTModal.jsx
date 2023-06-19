@@ -95,13 +95,13 @@ export default function ViewmodalShow({
 					<div className='tableHeader'>
 						<div className='tableHeaderContainer'>
 							<div className='tableheaderDateContainer' >
-								<h6 className="header">Date</h6>
+								<h6 className="header" style={{background: 'var(--btn-top-primary-bg)'}}>Date</h6>
 							</div>
 							<div className="tableheaderUserContainer" >
-								<h6 className="header">User Name</h6>
+								<h6 className="header" style={{background: 'var(--btn-top-primary-bg)'}}>User Name</h6>
 							</div>
 							<div className="tableheaderBidContainer" >
-								<h6 className="header">Bid</h6>
+								<h6 className="header" style={{background: 'var(--btn-top-primary-bg)'}}>Bid</h6>
 							</div>
 						</div>
 					</div> {list.map((listItem) => (

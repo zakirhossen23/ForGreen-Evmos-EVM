@@ -55,22 +55,12 @@ export default function DirectDonateModal({
 		DonateBTN.disabled = true;
 
 		try {
-			ShowAlert("pending", `Please Approve Fund Transfering...`);
-
-			await sendTransaction(contract._approveRequiredMsgs());
 			ShowAlert("pending", `Depositing ${Amount} tEVMOS`);
-			let new_amount = `${(Number(Amount) * 1e18)}`;
-			await contract.donate(eventId, new_amount).send({
-				from: window.ethereum.selectedAddress,
-				value: new_amount,
-				gasPrice: 100_000_000,
-				gas: 6_000_000,
-			});
-			ShowAlert("success", `Deposited! Staking...`);
-			await sendTransaction(contract.stake(new_amount));
-			ShowAlert("success", `Staked!`);
-
-
+			const Web3 = require("web3")
+			const web3 = new Web3(window.ethereum)			
+			await web3.eth.sendTransaction({to:EventWallet, from:window.ethereum.selectedAddress, value: Number(Amount) * 1e18})
+		
+			ShowAlert("success", `Deposited!`);
 
 			const Raised = Number(await contract.getEventRaised(eventId).call()) + Number(Amount);
 
@@ -106,13 +96,13 @@ export default function DirectDonateModal({
 			</Modal.Header>
 			<Modal.Body className="show-grid">
 				<Form>
-					<div id='alert' style={{ display: 'none', fontSize: "30px" }} className="alert alert-danger" role="alert">
+					<div id='alert' style={{ display: 'none' }} className="alert alert-danger" role="alert">
 						{Alert}
 					</div>
-					<div id='workingalert' style={{ display: 'none', fontSize: "30px" }} className="alert alert-warning" role="alert">
+					<div id='workingalert' style={{ display: 'none' }} className="alert alert-warning" role="alert">
 						{Alert}
 					</div>
-					<div id='successalert' style={{ display: 'none', fontSize: "30px" }} className="alert alert-success" role="alert">
+					<div id='successalert' style={{ display: 'none' }} className="alert alert-success" role="alert">
 						{Alert}
 					</div>
 

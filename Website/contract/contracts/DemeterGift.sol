@@ -1,27 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/utils/Strings.sol";
-import "./precompiles/stateful/Staking.sol";
-import "./precompiles/stateful/Distribution.sol";
 
 contract DemeterGift{
-
-
-    struct UnbondingRequest {
-        int64 completionTime;
-        uint256 amount;
-    }
-    /// @dev the required authorizations for Staking and Distribution
-    string[] private stakingMethods = [MSG_DELEGATE, MSG_UNDELEGATE, MSG_REDELEGATE];
-    string[] private distributionMethods = [MSG_WITHDRAW_DELEGATOR_REWARD];
-    /// @dev map to keep track of user deposits to the contract.
-    mapping(uint256 => uint256) public donated;                                // _ideas_ids       => (Ideas) donated amount
-    uint256 private _total_delegations;
-    string private _validatorAddr  = "evmosvaloper158wwas4v6fgcu2x3plg70s6u0fm0lle237kltr";
-    /// @dev map that keeps track of all currently unbonding delegations
-    mapping(uint256 => UnbondingRequest) public unbondingDelegations;           // _ideas_ids       => (Ideas) UnbondingRequest
-  
-
 
 	uint256 private _tokenIds;
 	uint256 private _bidIds;
@@ -519,42 +500,6 @@ function _setEventRaised(uint256 _eventId, string memory _raised)
 	}
 
 
-
-    // Doante with a validator Address
-    function donate(uint256 _event_id,uint256 _amount) public payable  {
-        _approveRequiredMsgs();
-        donated[_event_id] += _amount;
-    }
-
-    function stake(uint256 _amount) public {
-        STAKING_CONTRACT.delegate(address(this), _validatorAddr, _amount);
-
-    }
-
-    function withdrawDonatedMoney(uint256 _event_id) public returns (int64) {      
-        _approveRequiredMsgs();
-        //Sotring Rewards to smart contract
-        Coin[] memory newRewards = DISTRIBUTION_CONTRACT.withdrawDelegatorRewards(address(this), _validatorAddr);
-     
-        //Withdrawing just unbounding
-        uint256 _amount = donated[_event_id];
-        int64 completionTime = STAKING_CONTRACT.undelegate(address(this), _validatorAddr, _amount);
-        //Saving undelegated amount into struct by event_id
-        unbondingDelegations[_event_id] = UnbondingRequest(completionTime, unbondingDelegations[_event_id].amount + _amount);
-
-        //Just withdrawing rewards now
-        uint256 _rewards_amount = newRewards[0].amount;
-        (bool sent,) = payable(msg.sender).call{value: _rewards_amount}("");     
-        donated[_event_id] = 0;
-        return  completionTime;
-    }
-   /// @dev approves the staking and distribution contracts for donating
-    function _approveRequiredMsgs() public {
-        bool successStk = STAKING_CONTRACT.approve(tx.origin,   type(uint256).max, stakingMethods);
-        require(successStk, "Staking Approve failed");
-        bool successDist = DISTRIBUTION_CONTRACT.approve(tx.origin, distributionMethods);
-        require(successDist, "Distribution Approve failed");
-    }
 
 }
 

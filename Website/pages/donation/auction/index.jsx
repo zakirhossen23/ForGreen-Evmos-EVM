@@ -22,9 +22,6 @@ export default function AuctionNFT(user) {
     const [goalusd, setgoalusd] = useState('');
     const [goal, setgoal] = useState('');
     const [EventEarned, setEventEarned] = useState('');
-    const [EventWithdrawable, setEventWithdrawable] = useState(0);
-    const [EventdelegAmount, setEventdelegAmount] = useState(0);
-    const [EventdelegDate, setEventdelegDate] = useState(0);
     const [EventDescription, setEventDescription] = useState('');
     const [EventWallet, setEventWallet] = useState('');
     const [EventOwner, setEventOwner] = useState(false);
@@ -158,12 +155,6 @@ export default function AuctionNFT(user) {
                 setdateleftBid(LeftDateBid(object.properties.Date.description));
                 setlogo(object.properties.logo.description);
 
-                setEventWithdrawable(Number((await contract.donated(Number(id)).call())) / 1e18)
-                const delegation = await contract.unbondingDelegations(Number(id)).call();
-
-                setEventdelegAmount(Number(delegation.amount) / 1e18);
-                setEventdelegDate(Number(delegation.completionTime) * 1000);
-
             }
         } catch (error) {
             console.error(error);
@@ -216,25 +207,7 @@ export default function AuctionNFT(user) {
     function activateDirectDonateModal(e) {
         setDirectModalShow(true);
     }
-    async function RequestWithdraw() {
-        await sendTransaction(contract.withdrawDonatedMoney(Number(eventId)));
-        const delegation = await contract.unbondingDelegations(Number(eventId)).call();
-        var c = new Date(Number(delegation.completionTime) * 1000).getTime();
-        var n = new Date().getTime();
-        var d = c - n;
-        let da = Math.floor(d / (1000 * 60 * 60 * 24))
-        alert(`You will recieve donated amount after ${da} days`)
-        window.location.reload();
-    }
-    async function RequestRedeem() {
-        try {
-            await sendTransaction(contract.RedeemDelegetdMoney(Number(eventId)));
-        } catch (error) {
-            console.error(error);
-            return;
-        }
-        window.location.reload();
-    }
+  
 
 
     return (
@@ -275,51 +248,7 @@ export default function AuctionNFT(user) {
                             </div>
 
                             {(window.localStorage.getItem('Type') == "" || window.localStorage.getItem('Type') == null || window.localStorage.getItem('Type') == "manager") ? (<>
-                                {(window.localStorage.getItem('Type') == "manager" && EventOwner) ? (<>
-                                    <div className='m-progress-meter o-campaign-sidebar-progress-meter'>
-                                        <div>
-                                            <span className="text-stat text-stat-title" >
-                                                Amount withdrawable: {EventWithdrawable}
-                                            </span>
-                                        </div>
-                                        {(EventdelegAmount != 0) ? (<>
-
-                                            <div className="text-stat text-stat-title">Amount redeemable: {EventdelegAmount} tEVMOS </div>
-                                            <div>  <span name="dateleft" className="text-stat text-stat-title" inttype="true" date={EventdelegDate}>
-                                                {LeftDate(EventdelegDate, true)}
-                                            </span> </div>
-                                        </>) : (<></>)}
-                                    </div>
-
-
-
-                                    {(EventWithdrawable != 0) ?
-                                        (<>
-                                            <div className="p-campaign-share-donate-buttons">
-                                                <a
-                                                    className="p-campaign-share-button-exp mb2x m-auto hrt-gradient-button hrt-gradient-button--gradient-orange hrt-gradient-button--full hrt-gradient-button--shadow hrt-base-button"
-                                                    data-element-id="btn_donate"
-                                                    data-analytic-event-listener="true"
-                                                    onClick={RequestWithdraw}
-                                                >
-                                                    <span className="hrt-gradient-button-text">Withdraw Amount</span>
-                                                </a>
-                                            </div>
-                                        </>) : (<></>)}
-                                    {(EventdelegAmount != 0 && diff(EventdelegDate) <= 0) ?
-                                        (<>
-                                            <div className="p-campaign-share-donate-buttons">
-                                                <a
-                                                    className="p-campaign-share-button-exp mb2x m-auto hrt-gradient-button hrt-gradient-button--gradient-orange hrt-gradient-button--full hrt-gradient-button--shadow hrt-base-button"
-                                                    data-element-id="btn_donate"
-                                                    data-analytic-event-listener="true"
-                                                    onClick={RequestRedeem}
-                                                >
-                                                    <span className="hrt-gradient-button-text">Redeem Amount</span>
-                                                </a>
-                                            </div>
-                                        </>) : (<></>)}
-                                </>) : (<></>)}
+                              
                             </>) : (<> <div className="p-campaign-share-donate-buttons">
                                 <a
                                     className="p-campaign-share-button-exp mb2x m-auto hrt-gradient-button hrt-gradient-button--gradient-orange hrt-gradient-button--full hrt-gradient-button--shadow hrt-base-button"

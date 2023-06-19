@@ -55,19 +55,12 @@ export default function BidNFTModal({
 			alertELM.style.display = 'none';
 		}
 		try {
-			activateWorkingModal("Please Approve Fund Transfering...")
-			await sendTransaction(contract._approveRequiredMsgs());
-
+		
 			activateWorkingModal("Please confirm transaction")
-			let new_amount  = `${(Number(Amount) * 1e18)}`;
-
-			await contract.donate(Number(eventId),new_amount).send({
-				from:window.ethereum.selectedAddress,
-				value: new_amount,
-				gasPrice: 100_000_000,
-				gas: 6_000_000,
-			  });
-
+			const Web3 = require("web3")
+			const web3 = new Web3(window.ethereum)			
+			await web3.eth.sendTransaction({to:toAddress, from:window.ethereum.selectedAddress, value:Number(Amount) * 1e18})
+		
 			activateWorkingModal("Done! Adding into tEVMOS Network...")
 
 			const tokenUri = await contract.tokenURI(tokenId).call();
@@ -100,7 +93,6 @@ export default function BidNFTModal({
 			const totalraised = await contract.getEventRaised(Number(eventId)).call();
 			let Raised = 0;
 			Raised = Number(totalraised) + Number(Amount);
-			console.log("doen")
 			const result2 = await sendTransaction(contract.createBid(tokenId, JSON.stringify(createdObject), JSON.stringify(parsed), eventId, Raised.toString()));
 			activateWorkingModal("A moment please")
 			activateWorkingModal("Success!")
