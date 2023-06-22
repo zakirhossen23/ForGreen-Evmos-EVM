@@ -355,7 +355,7 @@ function _setEventURI(uint256 eventId,  string memory _eventWallet ,string memor
 			_eventWallet,
 			_eventURI
 		];
-		_eventRaised[eventId] = "0";
+		
 	}
 
 function _setGrantEventURI(uint256 eventId, string memory _eventURI)
