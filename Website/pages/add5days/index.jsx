@@ -45,7 +45,7 @@ function Add5DaysBTN(){
             <Header></Header>
             <div className="row" style={{ "height": "100%" }}>
                 <div className='createevents col' >
-                    <div style={{ background: "white", padding: "19px", borderRadius: "4px", height: "100%", border: "white solid" }}>
+                    <div style={{ padding: "19px", borderRadius: "4px", height: "100%", border: "white solid" }}>
                         
                         <Add5DaysBTN/>
                     </div>

@@ -1,14 +1,19 @@
 :root {
-    --background-color: #FAF1E4;
-    --forground-color: black;
-    --btn-top-primary-bg: #791332;
+    --background-color: #121F29;
+    --header-bg-color: #012033;
+    --forground-color: white;
+    --btn-top-primary-bg: rgba(197,228,243,.16);
     --btn-top-primary-fg: white;
-    --btn-bg: #ED4E33;
+    --btn-bg: #0d6efd;
+    --btn-home-bg: #ECC900;
+    --btn-auction-bg: #00DECD;
     --btn-fg: white;
-    --text-top-primary-fg: #791332;
+    --text-top-primary-fg: #ECC900;
   }
 
-
+  @function toRGB ($color) {
+    @return "rgb(" + red($color) + ", " + green($color) + ", " + blue($color)+ ")";
+}
 @keyframes checking {
     from {
         border: 1px solid rgba(255, 255, 255, 0.16);
@@ -456,7 +461,7 @@ color: var(--forground-color);
     width: 100%;
     vertical-align: middle;
     margin: 0;
-    background:var(--background-color);
+    background:var(--header-bg-color);
     align-self: center;
 }
 .tableheaderUserContainer{
@@ -525,7 +530,7 @@ a:hover {
     text-decoration: none !important;
 }
   .card-body:hover {    
-    background-color:rgb(197 29 0 / 80%) !important;
+    background-color:#0d6dfdb9 !important;
    
     color: white;
 } 

@@ -42,7 +42,7 @@ export default function Welcome() {
 				</div>
 				<div className="Welcome DonateBTN col">
 					<div onClick={donateCLICK} style={{
-						background: 'var(--btn-bg)',
+						background: 'var(-btn-home-bg)',
 						textAlign: 'center',
 						cursor: 'pointer',
 						height: '58px',
@@ -53,7 +53,7 @@ export default function Welcome() {
 						borderRadius: '5px',
 						justifyContent: 'center',
 						margin: '0px'
-					}} className="card card-body">
+					}} className="card card-body donation">
 						<div >Let’s donate!</div>
 					</div>
 				</div>

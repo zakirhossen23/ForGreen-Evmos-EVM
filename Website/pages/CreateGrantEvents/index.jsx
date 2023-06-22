@@ -281,7 +281,7 @@ export default function CreateGrantPoolEvents() {
             <Header></Header>
             <div className="row" style={{ "height": "100%" }}>
                 <div className='createevents col' >
-                    <div style={{ background: "white", padding: "19px", borderRadius: "4px", height: "100%", border: "white solid" }}>
+                    <div style={{  padding: "19px", borderRadius: "4px", height: "100%", border: "white solid" }}>
                         <div style={{ margin: "0px 0px 30px 0px" }}>
                             <h1>Create Grant Pool Event</h1>
                         </div>
