@@ -332,13 +332,13 @@ color: var(--forground-color);
     flex-direction: column;
 }
 .ElementsContainer{
-    color: white;
+    color: black;
     overflow: hidden;
     width: 100%;
 }
 
 .bgWhite{
-    background-color: var(--btn-bg);
+    background-color: white;
 }
 .TextContainer{
         display: flex;
@@ -354,7 +354,7 @@ color: var(--forground-color);
     bottom: 13px;
 }
 .smallgrey{
-        color: #e3e3e3;
+        color: #9f9f9f;
     font-size: 12px;
 }
 
@@ -380,9 +380,10 @@ color: var(--forground-color);
     white-space: nowrap;
 }
 .BidcontainerCard {
-    background: #faf1e4;
+    background: var(--btn-bg);
     text-align: center;
     cursor: pointer;
+    color: white;
     padding: 0;
     display: flex;
     border-radius: 7px;
@@ -524,12 +525,12 @@ a:hover {
     text-decoration: none !important;
 }
   .card-body:hover {    
-    background-color: rgba(237, 78, 51, 0.8) !important;
+    background-color:rgb(197 29 0 / 80%) !important;
    
     color: white;
 } 
 .card-body:not(.donation):hover {    
-    border: 1px solid white;
+    // border: 1px solid white;
 }
 
 h1 {

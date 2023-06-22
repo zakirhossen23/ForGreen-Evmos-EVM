@@ -23,8 +23,7 @@
     position: relative;
     bottom: 0;
     right: 0;
-    background: radial-gradient(ellipse at center, var(--btn-bg) 0, #0e0d0d 168%);
-    border: 5px dashed #fff;
+    border: 5px dashed var(--btn-bg);
     text-align: center;
     color: #fff;
     z-index: 20;

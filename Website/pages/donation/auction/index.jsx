@@ -322,7 +322,7 @@ export default function AuctionNFT(user) {
                                 <div className="DetialsContainer" style={{ rowGap: "5px" }} >
                                     <h6 className='Auction NFT-title'>{listItem.name}</h6>
                                     <div className="TextContainer">
-                                        <h6 className="Auction NFT-Description" style={{ color: "#dee2e6" }}>{listItem.description}</h6>
+                                        <h6 className="Auction NFT-Description" style={{ color: "rgb(138 138 138)" }}>{listItem.description}</h6>
                                     </div>
                                 </div>
                                 <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '11px' }}>
