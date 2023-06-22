@@ -42,7 +42,7 @@ export default function Welcome() {
 				</div>
 				<div className="Welcome DonateBTN col">
 					<div onClick={donateCLICK} style={{
-						background: 'var(-btn-home-bg)',
+						background: 'var(--btn-home-bg)',
 						textAlign: 'center',
 						cursor: 'pointer',
 						height: '58px',
