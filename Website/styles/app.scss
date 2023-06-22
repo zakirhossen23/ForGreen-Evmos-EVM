@@ -392,7 +392,7 @@ color: var(--forground-color);
     padding: 0;
     display: flex;
     border-radius: 7px;
-    width: 13vw;
+    width: 10vw;
     margin: 0px 3px;
     align-items: center;
     justify-content: center;
@@ -416,7 +416,7 @@ color: var(--forground-color);
     justify-content: center;
 }
 .Bidsbutton{
-    height: 7vw;
+    height: 5vw;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -425,9 +425,9 @@ color: var(--forground-color);
 .bidbuttonText{
     border-radius: 6px;
     height: 100%;
-    font-size: 3vw;
+    font-size: 2vw;
     width: 100%;
-    line-height: 6.9vw;
+    line-height: 4.9vw;
 }
 .TokenDetialsContainer{
         padding-top: 33px;
@@ -456,6 +456,7 @@ color: var(--forground-color);
     background: #00decd;
     height: 47px;
     border-radius: 10px 10px 0 0px;
+    overflow: hidden;
 }
 .header {
     width: 100%;
@@ -475,6 +476,7 @@ color: var(--forground-color);
     border: white 1px solid;
     border-radius: 10px 10px 0 0px;
     margin: 0px -1px 0px 0px;
+    overflow:hidden;
 }.tableheaderBidContainer{
        display: flex;
     color: white;
@@ -485,6 +487,7 @@ color: var(--forground-color);
     background: #00decd;
     height: 47px;
     border-radius: 10px 10px 0 0px;
+    overflow:hidden;
 }.tableFullRowContainer{
             display: flex;
     margin-top: 8px;
